@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" />
+    <!-- <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous" /> -->
+  </head>
+  <style>
+    .todoList,
+    .js-display {
+      display: grid;
+      column-gap: 5px;
+      grid-template-columns: 181px 129px 115px;
+    }
+    button {
+      background-color: green;
+      color: white;
+      border: none;
+      font-size: 15px;
+    }
+    .js-display {
+      margin-block: 10px;
+    }
+    .js-display button {
+      background-color: rgb(167, 6, 6);
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      margin-block: 5px;
+    }
+    .js-input-text,
+    .js-input-date {
+      padding: 6px;
+      font-size: 15px;
+    }
+  </style>
+  <body>
+    <button class="add">add</button>
+    <button class="remove">remove</button>
+    <script>
+      const addButton = document.querySelector(".add");
+      const removeButton = document.querySelector(".remove");
+      let message = 2;
+      let intervalId;
+      let isChange;
+      ////////////////////////////////////////////////////////////////////
+
+      displayData();
+
+      addButton.addEventListener("click", function () {
+        message += 1;
+        displayData();
+      });
+
+      function displayData() {
+        if (isChange) {
+          return;
+        }
+        isChange = true
+        intervalId = setInterval(() => {
+          if (document.title === "App") {
+            document.title = `(${message}) Messages`;
+          } else {
+            document.title = "App";
+          }
+        }, 1000);
+      };
+
+      removeButton.addEventListener("click", function() {
+        isChange = false;
+        if (message > 0) {
+          message--;
+          if (message === 0) {
+            clearInterval(intervalId);
+            document.title = "App"
+          }
+        } 
+      })
+    </script>
+  </body>
+</html>

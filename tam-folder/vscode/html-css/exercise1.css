@@ -1,0 +1,191 @@
+/* Cau 1 */
+
+.cau-1 {
+  font-weight: 800;
+  height: 15rem;
+  width: 35rem;
+  font-size: 200px;
+  text-align: center;
+  color: transparent;
+  background: linear-gradient(
+    180deg,
+    rgba(230, 93, 41, 1) 14%,
+    rgba(237, 138, 66, 1) 48%,
+    rgba(245, 183, 98, 1) 77%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+/* Cau 2 */
+
+.cau-2 {
+  /* border: 2px solid; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 700px;
+  min-width: 600px;
+  height: 230px;
+  font-size: 30px;
+  justify-content: space-around;
+}
+.button {
+  text-align: center;
+  padding: 20px;
+  margin-right: 30px;
+  /* display: inline-block; */
+  width: 150px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+}
+
+.button-green {
+  color: white;
+  background: linear-gradient(
+    252deg,
+    rgba(15, 234, 71, 1) 15%,
+    rgba(109, 235, 152, 1) 48%
+  );
+}
+.button-green:hover {
+  font-size: 1.8rem;
+  /* color: blue; */
+}
+.button-blue {
+  color: white;
+  background: rgb(27, 103, 235);
+  background: linear-gradient(
+    267deg,
+    rgba(27, 103, 235, 1) 15%,
+    rgba(88, 162, 245, 1) 48%
+  );
+}
+.button-violet {
+  color: white;
+  background: rgb(173, 35, 229);
+  background: linear-gradient(
+    298deg,
+    rgba(173, 35, 229, 1) 15%,
+    rgba(235, 86, 233, 1) 48%
+  );
+}
+.button-orange {
+  color: white;
+  background: rgb(229, 212, 35);
+  background: linear-gradient(
+    298deg,
+    rgba(229, 212, 35, 1) 15%,
+    rgba(235, 162, 86, 1) 48%
+  );
+}
+.button-red {
+  color: white;
+  background: rgb(229, 35, 73);
+  background: linear-gradient(
+    298deg,
+    rgba(229, 35, 73, 1) 15%,
+    rgba(245, 120, 155, 1) 48%
+  );
+}
+.button-pink {
+  color: white;
+  background: rgb(229, 35, 207);
+  background: linear-gradient(
+    298deg,
+    rgba(229, 35, 207, 1) 15%,
+    rgba(243, 120, 245, 1) 65%
+  );
+}
+
+/* cau 3 + 4*/
+.item {
+  list-style-type: none;
+  display: inline-block;
+  transition: all 2.5s;
+  width: 150px;
+  height: 220px;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s;
+}
+.item:first-child {
+  background-color: red;
+}
+.item:first-child:hover {
+  background-color: green;
+}
+.item:nth-of-type(2) {
+  background-color: violet;
+}
+
+.item:nth-of-type(2):hover {
+  background-color: aqua;
+}
+.item:nth-of-type(3) {
+  background-color: blue;
+}
+
+.item:nth-of-type(3):hover {
+  background-color: yellowgreen;
+}
+
+.item:nth-of-type(4) {
+  background-color: lightcoral;
+}
+.item:nth-of-type(4):hover {
+  background-color: lightskyblue;
+}
+.item:nth-of-type(5) {
+  background-color: yellow;
+}
+.item:nth-of-type(5):hover {
+  background-color: blueviolet;
+}
+.item:nth-of-type(6) {
+  background-color: green;
+}
+.item:nth-of-type(6):hover {
+  background-color: red;
+}
+.item:nth-of-type(7) {
+  background-color: black;
+}
+.item:nth-of-type(7):hover {
+  background-color: orchid;
+}
+.item:nth-of-type(8) {
+  background-color: grey;
+}
+.item:nth-of-type(8):hover {
+  background-color: brown;
+}
+.item:last-child {
+  background-color: cyan;
+}
+.item:last-child:hover {
+  background-color: fuchsia;
+}
+
+/* Cau 5 */
+div[data-link^='https'] {
+  color: red;
+}
+
+div[data-link$='.vn'] {
+  color: blue;
+}
+
+div[data-name*='hello'] {
+  color: blueviolet;
+}
+
+input[type='email'] {
+  color: rgb(229, 35, 207);
+}
+
+input[name='fullname'] {
+  color: green;
+}

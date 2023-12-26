@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.containers {
+    background-color: rgb(2, 2, 48);
+    color: white;
+    border-radius: 5px;
+    padding: 20px;
+    width: 90%;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    /* gap: 30px; */
+    /* border: 2px solid; */
+    /* flex-wrap: wrap; */
+    gap: 10px;
+}
+
+.column {
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ flex: 25%;
+ /* border: 2px solid; */
+}
+
+
+.column h3{
+    margin: 20px 0;
+}
+.form, .icon {
+    display: flex;
+}
+.column p {
+    padding: 5px 0;
+}
+.column:last-child p {
+    flex: 1;
+}
+
+
+.form {
+    display: flex;
+    /* align-items: stretch; */
+    justify-content: center;
+   padding: 20px 0;
+}
+
+.form input {
+    padding: 8px 16px;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    margin-inline-end: 5px;
+    flex: 1;
+}
+.form a {
+    text-decoration: none;
+    display: block;
+    background-color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 2px;
+}
+
+.icon a i {
+    color: white;
+}
+.icon {
+    display: flex;
+    gap: 10px;
+   margin: 5px 0;
+}
+
+@media screen and (max-width: 700px) {
+    .row {
+        flex-wrap: wrap;
+    }
+    .column {
+        flex: 30%;
+        align-items: center;
+    }
+    /* .form input {
+        flex: 0;
+    } */
+}
+
+
+
+@media screen and (max-width: 400px) {
+    /* .row {
+        flex-wrap: wrap;
+    } */
+    .column {
+        flex: 100%;
+        align-items: center;
+    }
+    .form {
+        flex-wrap: wrap;
+    }
+    .form a {
+        margin-top: 5px;
+    }
+}
+

@@ -1,0 +1,101 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#containers {
+  position: fixed;
+  top: 32px;
+  right: 32px;
+}
+.containers {
+  display: flex;
+  background-color: white;
+  align-items: center;
+  max-width: 100%;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 2px;
+  margin-bottom: 30px;
+  padding: 20px;
+  transition: all linear 0.3s;
+}
+
+@keyframes right-to-left {
+  from {
+    opacity: 0;
+    transform: translateX(calc(100% + 32px));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes hide {
+  to {
+    opacity: 0;
+  }
+}
+
+.containers .icon__after {
+  cursor: pointer;
+}
+.containers .icon__before,
+.containers .icon__after {
+  padding: 0 15px;
+}
+.containers .icon__before > svg,
+.containers .icon__after > svg {
+  width: 2rem;
+  height: 1.5rem;
+}
+
+.background-gray {
+  max-width: 600px;
+  height: 600px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  margin: 200px auto;
+  justify-content: center;
+}
+
+.success {
+  border-left: 4px solid rgb(32, 207, 32);
+}
+.info {
+  border-left: 4px solid blue;
+}
+.warning {
+  border-left: 4px solid orange;
+}
+
+
+/* ////////////////////////////////////////////////////////////////////////////// */
+.btn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.btn .button {
+  margin: 20px;
+}
+.btn .button button {
+  border-radius: 50px;
+  width: 200px;
+  height: 2rem;
+  border: none;
+  cursor: pointer;
+}
+.btn .button__success button {
+  background-color: rgb(32, 207, 32);
+  color: white;
+}
+.btn .button__info button {
+  background-color: rgb(100, 98, 240);
+  color: white;
+}
+.btn .button__warning button {
+  background-color: rgb(238, 73, 73);
+  color: white;
+}

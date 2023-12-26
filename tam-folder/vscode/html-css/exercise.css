@@ -1,0 +1,79 @@
+/* Cau hoi so 1 */
+.box {
+  width: 200px;
+  height: 300px;
+  background-color: #ffa400;
+  border: 4px solid yellow;
+  border-radius: 4px;
+  text-align: center;
+  padding: 10px;
+  margin: 15px;
+}
+
+/* Cau hoi so 2 */
+.lorem {
+  max-width: 500px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Cau hoi so 3 */
+.lorem1 {
+  color: blue;
+  max-width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* Cau hoi so 4 */
+.imagies {
+  background-image: url('https://plus.unsplash.com/premium_photo-1666792562882-8bd04befec7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1075&q=80');
+  background-repeat: no-repeat;
+  background-position: center right;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+}
+
+/* Cau hoi so 5 */
+.img {
+  height: 400px;
+  width: 400px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 50%;
+}
+
+/* Cau hoi so 6 */
+body {
+  font-family: 'Roboto Slab', serif;
+  font-family: 400;
+}
+
+/* Cau hoi so 7 */
+.button1 {
+  margin-left: 50px;
+  background-color: violet;
+  text-decoration: none;
+  color: white;
+  padding: 20px 50px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.button2 {
+  border-radius: 4px;
+}
+
+.button3 {
+  border-radius: 20px;
+}
+/* Cau hoi so 8 va 9*/
+.button1:hover {
+  background-color: white;
+  color: blue;
+  font-size: 1.5em;
+}
