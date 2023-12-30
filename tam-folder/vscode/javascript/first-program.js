@@ -528,20 +528,20 @@
 
 
 
-// const p2func = () => new Promise((resolve, reject) => {
-//   setTimeout(() => {
-//     resolve("tam")
-//   }, 1000);
-// })
+const p2func = () => new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("tam")
+  }, 1000);
+})
 
-// async function handle() {
-//     try {
-//       const value = await p2func()
-//       console.log(value)
-//     } catch (err) {
-//       console.log(err)
-//     }
-// }
+async function handle() {
+    try {
+      const value = await p2func()
+      console.log(value)
+    } catch (err) {
+      console.log(err)
+    }
+}
 
-// handle()
+handle()
 
