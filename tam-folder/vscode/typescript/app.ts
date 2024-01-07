@@ -4,6 +4,7 @@ let num: number = 20
 let isChange: boolean = false
 
 
+
 let idol: {
     name: string,
     cup: number
@@ -16,6 +17,7 @@ let idol: {
 let song: string[] = []
 song.push("xuan da ve", "tet den that roi")
 
+
 let power: {
     name: string,
     top: number
@@ -25,18 +27,17 @@ power.push({
     top: 1
 })
 
-
 function noName(num1: number, num2: number): number {
     return num1 + num2
 }
 
 const noThing = (num1: number, num2: number): number => num1 * num2
 
+
 const noProblem: (num1: number, num2: number) => number = (
     num1: number, 
     num2: number
 ) => num1 - num2
-
 
 
 
@@ -69,6 +70,7 @@ let city: city = {
 
 
 
+
 type animal = {
     name: string, 
     sex: string
@@ -88,6 +90,8 @@ handleClick<string>(value)
 
 const newHandle = <type>(value: type) => value
 newHandle<number>(20)
+
+
 
 
 
