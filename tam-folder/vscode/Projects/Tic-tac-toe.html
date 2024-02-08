@@ -88,6 +88,7 @@
       const h3Tag = document.querySelector("h3");
       const h4Tag = document.querySelector("h4");
       const resetTag = document.querySelector(".reset");
+
       let result = "";
       let gameOver = false;
       let isChange;
@@ -115,6 +116,7 @@
       autoPlay.className = "autoPlay";
       autoPlay.innerText = "Auto Play";
       document.body.appendChild(autoPlay);
+
       autoPlay.addEventListener("click", function () {
         if (this.innerText === "Auto Play") {
           if (isChange) {
@@ -122,23 +124,25 @@
           }
           isChange = true;
           this.innerText = "Stop Play";
-          play = setInterval(() => {
-            playGame(randomX());
-          }, 500);
+          playX = setInterval(() => {
+            randomX();
+          }, 1000);
         } else {
           isChange = false;
           this.innerText = "Auto Play";
-          clearInterval(play);
+          clearInterval(playX);
         }
       });
       resetTag.addEventListener("click", function () {
         resetPoint();
+        resetBoard();
       });
       function playGame() {
         pTags.forEach((event) => {
           event.addEventListener("click", function () {
             if (this.innerText === "" && !gameOver) {
               /// điều kiện !gameOver để tránh trường hợp đã có kết quả mà vẫn có thể click tiếp được
+
               this.innerText = "X";
               horizontal();
               vertical();
@@ -147,7 +151,7 @@
             }
           });
         });
-      };
+      }
       function randomX() {
         let p = Array.from(pTags).filter((p) => p.innerText === "");
         const randomNumber = Math.floor(Math.random() * p.length);
@@ -155,15 +159,15 @@
           p[randomNumber].innerText = "X";
         }
         randomO();
-        if (p.length === 0 && !gameOver) {
-          location.reload();
-        } else if (p.length === 0 && gameOver) {
-          location.reload();
-        } else if (gameOver) {
-          location.reload();
-        }
+        // if (p.length === 0 && !gameOver) {
+        //   location.reload();
+        // } else if (p.length === 0 && gameOver) {
+        //   location.reload();
+        // } else if (gameOver) {
+        //   location.reload();
+        // }
         return p[randomNumber];
-      };
+      }
       function randomO() {
         let p = Array.from(pTags).filter((p) => p.innerText === "");
         const randomNumber = Math.floor(Math.random() * p.length);
@@ -179,13 +183,20 @@
           }
         }
         updateScoreAndDisplayResult();
+
         return p[randomNumber];
-      };
+      }
       function resetPoint() {
         (score.win = 0), (score.lose = 0), (score.draw = 0);
         h4Tag.innerText = `Win: ${score.win}, Lose: ${score.lose}, Draw: ${score.draw}`;
         localStorage.setItem("score", JSON.stringify(score));
-      };
+      }
+
+      function resetBoard() {
+        pTags.forEach((p) => {
+          p.innerText = "";
+        });
+      }
       function updateScoreAndDisplayResult() {
         if (result === "You win") {
           score.win++;
@@ -197,7 +208,13 @@
         h3Tag.innerText = `${result}`;
         h4Tag.innerText = `Win: ${score.win}, Lose: ${score.lose}, Draw: ${score.draw}`;
         localStorage.setItem("score", JSON.stringify(score));
-      };
+
+        if (gameOver) {
+          setTimeout(() => {
+            location.reload();
+          }, 500);
+        }
+      }
       function horizontal() {
         for (let i = 0; i < divTags.length; i++) {
           if (
@@ -216,7 +233,7 @@
             gameOver = true;
           }
         }
-      };
+      }
       function vertical() {
         for (let i = 0; i < divTags.length; i++) {
           if (
@@ -236,7 +253,7 @@
             gameOver = true;
           }
         }
-      };
+      }
       function cross() {
         if (
           divTags[0].querySelectorAll("p")[0].innerText === "X" &&
