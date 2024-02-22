@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Ads from './Ads'
+
 
 export interface PositionType {
     x: number

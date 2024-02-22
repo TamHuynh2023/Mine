@@ -37,7 +37,7 @@ const initialData: State = {
   currentTodo: null
 }
 
-function reducer(state: State, action: ActionType): State {
+function reducer(state: typeof initialData, action: ActionType): typeof initialData {
   switch (action.type) {
     case 'add':
       const { name } = action.payload
