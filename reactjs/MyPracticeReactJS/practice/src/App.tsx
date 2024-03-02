@@ -18,7 +18,6 @@ export default function App() {
                 </div>
                 <Companies />
 
-                
                 <Residencies />
                 <OurValue />
                 <Contact />
@@ -26,3 +25,6 @@ export default function App() {
         </>
     )
 }
+
+
+
