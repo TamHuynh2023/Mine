@@ -17,6 +17,8 @@ export default function App() {
                     <BodyOfHeader />
                 </div>
                 <Companies />
+
+                
                 <Residencies />
                 <OurValue />
                 <Contact />
