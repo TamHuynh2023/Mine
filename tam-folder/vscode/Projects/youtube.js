@@ -219,13 +219,13 @@ window.addEventListener("DOMContentLoaded", function() {
         })
     };
 
-    if (localStorage.getItem("dimGrayColor")) {
-        document.querySelectorAll(".video .information > a, .video .information > span").forEach((event) => {
-            if (!event.matches("span:nth-of-type(2)")) {
-                event.style.color = localStorage.getItem("dimGrayColor");
-            }
-        });
-    };
+    // if (localStorage.getItem("dimGrayColor")) {
+    //     document.querySelectorAll(".video .information > a, .video .information > span").forEach((event) => {
+    //         if (!event.matches("span:nth-of-type(2)")) {
+    //             event.style.color = localStorage.getItem("dimGrayColor");
+    //         }
+    //     });
+    // };
     if (localStorage.getItem("whiteBackgroundColor")) {
         document.querySelectorAll("aside, header, body, .article-content, .article-header").forEach(event => {
             event.style.backgroundColor = localStorage.getItem("whiteBackgroundColor")

@@ -2,8 +2,6 @@ import { mainSecondSection } from "../shopee data/shopee-data-shopee.js";
 
 
 
-
-
 for (let i = 0; i < mainSecondSection.length; i++) {
     document.querySelector(".main-second-section ul").innerHTML += 
     `

@@ -1,0 +1,94 @@
+.second__section {
+    background-color: #131110;
+    margin-top: 70px;
+}
+
+.second__section article {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-block: 2rem;
+}
+.second__section article .title {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    align-items: flex-start;
+    color: white;
+    gap: 40px;
+    position: relative;
+    z-index: 0;
+    align-self: flex-end;
+}
+.second__section article .title .orange__circle {
+    position: absolute;
+    content: '';
+    height: 4rem;
+    width: 4rem;
+    right: 42%;
+    top: -6%;
+    background: linear-gradient(270deg, #ffb978 0%, #ff922d 100%);
+    border-radius: 50%;
+    z-index: -1;
+}
+.second__section article .title h2 {
+    font-weight: 600;
+    font-size: 3.2rem;
+    line-height: 4rem;
+}
+.second__section article .image__container .image {
+    width: 30rem;
+    height: 35rem;
+    border-radius: 15rem 15rem 0 0;
+    overflow: hidden;
+}
+.second__section article .image__container .image img {
+    width: 100%;
+    height: 100%;
+}
+.second__section article .title form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    width: 100%;
+}
+.second__section article .title form input {
+    border: none;
+    outline: none;
+    color: black;
+}
+.second__section article .title form button {
+    background: linear-gradient(97.05deg, #4066ff 3.76%, #2949c6 100%);
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+.second__section article .title .count {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.second__section article .title .count .count__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.second__section article .title .count .count__item > span:first-child {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.second__section article .title .count .count__item span:nth-child(1) > span:last-child {
+    color: #ff922d;
+    font-size: 2rem;
+}
+.second__section article .title .count .count__item span:last-child {
+    font-size: 0.9rem;
+    color: rgba(140, 139, 139);
+}

@@ -5,23 +5,23 @@
 }
 
 html {
-    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+body {
+    font-family: 'Poppins', sans-serif;
 }
 
 .App {
-    display: flex;
-    width: 100%;
-    height: 1000px;
     position: relative;
-}
-.App aside {
-    width: 25%;
-    background-color: rgb(114, 114, 114);
-    display: flex;
-    flex-direction: column;
-    color: white;
+    overflow-x: clip;
 }
 
-.App main {
-    width: 75%;
+.white__gradient {
+    position: absolute;
+    width: 20rem;
+    height: 20rem;
+    background: rgba(255, 255, 255, 0.552);
+    filter: blur(100px);
+    border-radius: 50%;
+    z-index: 2;
 }
