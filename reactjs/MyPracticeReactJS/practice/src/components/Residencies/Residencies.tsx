@@ -72,7 +72,7 @@ function SliderButtonWhenResponsive() {
         <>
             <div className='btn-small'>
                 <button onClick={() => swiper.slidePrev()}>
-                    <img src="https://cdn-icons-png.flaticon.com/512/2879/2879564.png" alt="" />
+                    <img src='https://cdn-icons-png.flaticon.com/512/2879/2879564.png' alt='' />
                 </button>
                 <button onClick={() => swiper.slideNext()}>
                     {' '}
