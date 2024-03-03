@@ -1,0 +1,36 @@
+.seven__section {
+    margin: 0 auto;
+    margin-top: 100px;
+    max-width: 1200px;
+}
+
+.seven__section article {
+    background-color: #4161df;
+    border: 6px solid #5d77d6;
+    border-radius: 5px;
+}
+
+.seven__section article .container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.3rem;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    max-width: none;
+}
+.seven__section article .container h2 {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.seven__section article .container button {
+    background: #5a73d7;
+    border: 2px solid white;
+    padding: 7px 16px;
+    border-radius: 6px;
+    transition: all 0.1s linear;
+}
+.seven__section article .container button:hover {
+    transform: scale(1.15);
+}

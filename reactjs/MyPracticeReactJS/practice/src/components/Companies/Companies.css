@@ -15,3 +15,9 @@
 .third__section article .container__company .img__Company img {
     width: 100%;
 }
+
+@media screen and (max-width: 600px) {
+    .third__section article .container__company {
+        flex-wrap: wrap;
+    }
+}

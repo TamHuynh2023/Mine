@@ -6,6 +6,8 @@ import Companies from 'components/Companies'
 import Residencies from 'components/Residencies'
 import OurValue from 'components/OurValue'
 import Contact from 'components/Contact.tsx'
+import GetStart from 'components/GetStart'
+import Footer from 'components/Footer'
 
 export default function App() {
     return (
@@ -21,6 +23,8 @@ export default function App() {
                 <Residencies />
                 <OurValue />
                 <Contact />
+                <GetStart />
+                <Footer />
             </div>
         </>
     )

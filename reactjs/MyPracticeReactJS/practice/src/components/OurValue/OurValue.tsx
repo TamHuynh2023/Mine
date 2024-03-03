@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useReducer, useState } from 'react'
 import './OurValue.css'
 
 const initialData = [
@@ -22,18 +22,21 @@ const initialData = [
     }
 ]
 
-export default function OurValue() {
-    const [data, setData] = useState(initialData)
+function reducer(state: typeof initialData, action: { type: string; payload: any }): typeof initialData {
+    switch (action.type) {
+        case 'handleclick':
+            const id = action.payload
 
-    function handleShow(i: number) {
-        let change = data.map((item) => {
-            if (i === item.id) {
-                return { ...item, isOpen: true }
-            } else {
-                return { ...item, isOpen: false }
-            }
-        })
-        setData(change)
+            return state.map((item) => (item.id === id ? { ...item, isOpen: true } : { ...item, isOpen: false }))
+        default:
+            throw new Error('Unhandled action type')
+    }
+}
+export default function OurValue() {
+    const [state, dispatch] = useReducer(reducer, initialData)
+
+    function handleShow(id: number) {
+        dispatch({ type: 'handleclick', payload: id })
     }
 
     return (
@@ -52,7 +55,7 @@ export default function OurValue() {
                             place to live can make your life better.
                         </p>
 
-                        {data.map((item) => (
+                        {state.map((item) => (
                             <div
                                 key={item.id}
                                 className={`drop__down ${item.isOpen ? 'styleShadow' : ''}`}

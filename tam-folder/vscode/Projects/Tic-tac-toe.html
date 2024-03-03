@@ -132,6 +132,7 @@
           this.innerText = "Auto Play";
           clearInterval(playX);
         }
+        resetBoard();
       });
       resetTag.addEventListener("click", function () {
         resetPoint();
@@ -180,7 +181,9 @@
           /// nếu 9 ô full và không thể tìm ra người thắng (!gameOver)
           if (!horizontal() && !vertical() && !cross()) {
             result = "Draw";
+            gameOver = true;
           }
+          resetBoard()
         }
         updateScoreAndDisplayResult();
 
