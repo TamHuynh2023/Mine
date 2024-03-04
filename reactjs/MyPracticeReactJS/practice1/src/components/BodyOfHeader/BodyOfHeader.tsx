@@ -1,7 +1,7 @@
 import './BodyOfHeader.css'
 
 const imgData = 'https://github.com/ZainRk/Personal-Portfolio-React/blob/master/src/img/crown.png?raw=true'
-const imgStart = 'https://github.com/ZainRk/Personal-Portfolio-React/blob/master/src/img/thumbup.png?raw=true'
+const imgStar = 'https://github.com/ZainRk/Personal-Portfolio-React/blob/master/src/img/thumbup.png?raw=true'
 const imgEmoji = 'https://github.com/ZainRk/Personal-Portfolio-React/blob/master/src/img/glassesimoji.png?raw=true'
 
 export default function BodyOfHeader() {
@@ -55,9 +55,9 @@ export default function BodyOfHeader() {
                                     alt=''
                                 />
                             </div>
-                            <Crown img={imgData} text={'Data Science'} data={"data"} />
-                            <Crown img={imgStart} right={'10%'} top={'33px'} />
-                            <Crown img={imgEmoji} bottom={'0'} />
+                            <Crown img={imgData} text={'Data Science'} number={1} />
+                            <Crown img={imgStar} number={2} />
+                            <Crown img={imgEmoji} number={3} />
                         </div>
                     </div>
                 </article>
@@ -68,17 +68,13 @@ export default function BodyOfHeader() {
 
 interface ImgProps {
     img: string
-    right?: string
-    top?: string
     text?: string
-    bottom?: string
-    paddingInlineEnd?:string
-    data?: string
+    number: number
 }
-function Crown({ img, right, text, top, bottom, paddingInlineEnd, data }: ImgProps) {
+function Crown({ img, text, number }: ImgProps) {
     return (
         <>
-            <div className="crown" style={{ right, top, bottom, paddingInlineEnd }}>
+            <div className={`crown ${number === 1 && 'data'}  ${number === 2 && "start"} ${number === 3 && "emoji"}`}>
                 <img src={img} alt='' />
                 <span>{text}</span>
             </div>
