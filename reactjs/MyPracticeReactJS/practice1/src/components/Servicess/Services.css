@@ -1,0 +1,111 @@
+.third__section {
+    margin: 0 auto;
+    max-width: 1500px;
+    margin-top: 14rem;
+    width: 90%;
+    position: relative;
+}
+.third__section article {
+    display: flex;
+    position: relative;
+}
+
+.third__section article .CV {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: 1rem;
+    width: 40%;
+}
+.third__section article .cards {
+    flex: 1;
+    border-radius: 10px;
+    width: 100%; /* Đảm bảo chiếm hết phần tử cha */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 700px;
+}
+.third__section article .CV h2 {
+    font-size: 2rem;
+    color: rgb(63, 20, 163);
+    font-weight: bold;
+}
+.third__section article .CV p {
+    color: orange;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.third__section article .CV button {
+    padding: 8px 16px;
+    background-color: orange;
+    color: white;
+    border-radius: 7px;
+}
+
+.card {
+    width: 19rem;
+    border: 10px solid rgb(255, 183, 49);
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 10px;
+    align-items: center;
+    text-align: center;
+}
+.card h3 {
+    font-weight: bold;
+    font-size: 2rem;
+}
+.card a {
+    text-decoration: none;
+    color: blue;
+}
+.card .image__card {
+    width: 5rem;
+}
+.card img {
+    width: 100%;
+}
+
+.first {
+    position: absolute;
+    right: 10%;
+    top: 0;
+}
+.second {
+    position: absolute;
+    bottom: -31px;
+    right: 137px;
+}
+.third {
+    position: absolute;
+    top: 34%;
+    left: 12%;
+}
+
+.blur__center__cards {
+    background: #0e95f0;
+    position: absolute;
+    width: 22rem;
+    height: 15rem;
+    border-radius: 50%;
+    filter: blur(139px);
+    z-index: -1;
+    top: 50%;
+    left: 67%;
+    transform: translate(-50%, -50%);
+}
+
+.blur__left {
+    background: #ce13ff;
+    position: absolute;
+    width: 22rem;
+    height: 15rem;
+    border-radius: 50%;
+    filter: blur(139px);
+    z-index: -1;
+    left: -65px;
+    top: 50%;
+}

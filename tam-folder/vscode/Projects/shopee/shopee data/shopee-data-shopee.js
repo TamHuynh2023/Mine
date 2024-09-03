@@ -148,7 +148,7 @@ export const secondRowItem = [{
 }];
 export const firstRowSale = [
 {
- img: "https://down-vn.img.susercontent.com/file/sg-11134201-22120-ubv5348a65kv0b_tn",
+ img: "https://down-vn.img.susercontent.com/file/vn-50009109-9b1f48e94cf33424a9423ce94b527741_tn",
  price: "559.000",
  sale: "ĐANG BÁN CHẠY",
  width: "24px"
@@ -166,7 +166,7 @@ export const firstRowSale = [
  width: "52px"
 },
 {
- img: "https://down-vn.img.susercontent.com/file/vn-50009109-c7567dae3ee3d25a9d596c7eed9a58ef_tn",
+ img: "https://down-vn.img.susercontent.com/file/vn-50009109-093dcee6f54e1ae4f581ee5b516f8e07_tn",
  price: "79.000",
  sale: "CHỈ CÒN 7",
  width: "95%"

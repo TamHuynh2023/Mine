@@ -1,0 +1,46 @@
+.seven__section {
+    margin: 0 auto;
+    max-width: 1500px;
+    margin-top: 5rem;
+}
+.seven__section article {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
+}
+.seven__section .swiper {
+    width: 100%;
+    height: 100%;
+}
+.container {
+    position: relative;
+}
+.seven__section .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.seven__section .child {
+    width: 35rem;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid rgb(20, 152, 204);
+    padding: 1.5rem;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+.seven__section .child img {
+    width: 9rem;
+    height: 9rem;
+    object-fit: cover;
+    vertical-align: bottom;
+}
+
+.seven__section h2 {
+    font-size: 1.5rem;
+    color: orange;
+    font-weight: bold;
+}

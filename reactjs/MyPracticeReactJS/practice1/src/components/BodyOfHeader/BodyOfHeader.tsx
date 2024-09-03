@@ -37,29 +37,33 @@ export default function BodyOfHeader() {
                     </div>
                     <div className='n__right'>
                         <div className='image'>
-                            <div className='image__wrapper'>
-                                <img
-                                    src='https://github.com/ZainRk/Personal-Portfolio-React/blob/master/src/img/Vector1.png?raw=true'
-                                    alt=''
-                                />
-                            </div>
-                            <div className='image__wrapper'>
-                                <img
-                                    src='https://github.com/ZainRk/Personal-Portfolio-React/blob/master/src/img/Vector2.png?raw=true'
-                                    alt=''
-                                />
-                            </div>
-                            <div className='boy'>
-                                <img
-                                    src='https://github.com/ZainRk/Personal-Portfolio-React/blob/master/src/img/boy.png?raw=true'
-                                    alt=''
-                                />
+                            <div className='container'>
+                                <div className='image__wrapper'>
+                                    <img
+                                        src='https://github.com/ZainRk/Personal-Portfolio-React/blob/master/src/img/Vector1.png?raw=true'
+                                        alt=''
+                                    />
+                                </div>
+                                <div className='image__wrapper'>
+                                    <img
+                                        src='https://github.com/ZainRk/Personal-Portfolio-React/blob/master/src/img/Vector2.png?raw=true'
+                                        alt=''
+                                    />
+                                </div>
+                                <div className='boy'>
+                                    <img
+                                        src='https://github.com/ZainRk/Personal-Portfolio-React/blob/master/src/img/boy.png?raw=true'
+                                        alt=''
+                                    />
+                                </div>
                             </div>
                             <Crown img={imgData} text={'Data Science'} number={1} />
-                            <Crown img={imgStar} number={2} />
+                            <Crown img={imgStar} number={2} text={'Web Developer'} />
                             <Crown img={imgEmoji} number={3} />
                         </div>
                     </div>
+                    <div className='blur__right'></div>
+                    <div className='blur__center'></div>
                 </article>
             </section>
         </>
@@ -74,7 +78,7 @@ interface ImgProps {
 function Crown({ img, text, number }: ImgProps) {
     return (
         <>
-            <div className={`crown ${number === 1 && 'data'}  ${number === 2 && "start"} ${number === 3 && "emoji"}`}>
+            <div className={`crown ${number === 1 && 'data'}  ${number === 2 && 'start'} ${number === 3 && 'emoji'}`}>
                 <img src={img} alt='' />
                 <span>{text}</span>
             </div>

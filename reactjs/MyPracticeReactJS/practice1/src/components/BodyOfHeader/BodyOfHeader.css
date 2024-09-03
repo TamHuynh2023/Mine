@@ -8,6 +8,7 @@
     display: flex;
     /* align-items: center; */
     justify-content: space-between;
+    position: relative;
 }
 
 .second__section article :is(.n__left, .n__right) {
@@ -86,13 +87,16 @@
     left: 50%;
     transform: translateX(-50%) scale(1.7);
 }
+.second__section article .n__right .container {
+    animation: moveDown 2s ease-in-out infinite;
+}
 /* ///////////////////////////////////////////////////////////////////////////////////// */
 .crown {
     position: absolute;
     display: flex;
     align-items: center;
 }
-.crown img {
+.data img {
     transform: scale(0.5);
 }
 .data {
@@ -102,15 +106,79 @@
     box-shadow: 0px 10px 17px 0px rgba(62, 66, 66, 0.25);
     height: 5rem;
     padding-inline-end: 2rem;
+    animation: moveLeft 5s ease-in-out infinite;
 }
 .start {
-    right: 10%;
+    right: 7%;
     top: 0;
+    animation: moveUp 2s ease-in-out infinite;
+    background-color: white;
+    -webkit-box-shadow: 0px 10px 17px 0px rgba(62, 66, 66, 0.25);
+    -moz-box-shadow: 0px 10px 17px 0px rgba(62, 66, 66, 0.25);
+    box-shadow: 0px 10px 17px 0px rgba(62, 66, 66, 0.25);
+    height: 5rem;
+    padding-inline-end: 2rem;
+}
+.start img {
+    transform: scale(0.5);
 }
 .emoji {
-    bottom: 0;
-    left: 0;
+    bottom: -100px;
+    left: -20%;
+    animation: moveUp 2s ease-in-out infinite;
 }
-.start img, .emoji img {
+
+.emoji img {
     transform: scale(1);
+}
+
+@keyframes moveUp {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(45px);
+    }
+}
+@keyframes moveDown {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-45px);
+    }
+}
+@keyframes moveLeft {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-200px);
+    }
+}
+
+.blur__right {
+    background: #ce13ff;
+    position: absolute;
+    width: 22rem;
+    height: 15rem;
+    border-radius: 50%;
+    filter: blur(139px);
+    z-index: -1;
+    right: -65px;
+}
+.blur__center {
+    background: #0e95f0;
+    position: absolute;
+    width: 22rem;
+    height: 15rem;
+    border-radius: 50%;
+    filter: blur(139px);
+    z-index: -1;
+    bottom: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
