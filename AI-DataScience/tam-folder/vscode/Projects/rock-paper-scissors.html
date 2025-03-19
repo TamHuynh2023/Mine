@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock-Paper-Scissors</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" />
+  </head>
+  <style>
+    body {
+      background-color: rgb(25, 25, 25);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    h1,
+    .js-display1,
+    .js-display2,
+    .js-total-result {
+      color: white;
+    }
+    .js-display1 {
+        font-weight: bold;
+        text-transform:capitalize;
+    }
+    
+    .move-button {
+      width: 120px;
+      height: 120px;
+      background-color: transparent;
+      border: 3px solid white;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    img {
+      height: 50px;
+    }
+    .reset, .auto {
+      padding: 8px 20px;
+    }
+  </style>
+  <body>
+    <h1>Rock Paper Scissors</h1>
+    <button onclick="playPick(rock)" class="move-button">
+      <img
+        src="https://supersimple.dev/projects/rock-paper-scissors/images/rock-emoji.png"
+        alt="" />
+    </button>
+    <button onclick="playPick(paper)" class="move-button">
+      <img
+        src="https://supersimple.dev/projects/rock-paper-scissors/images/paper-emoji.png"
+        alt="" />
+    </button>
+    <button onclick="playPick(scissors)" class="move-button">
+      <img
+        src="https://supersimple.dev/projects/rock-paper-scissors/images/scissors-emoji.png"
+        alt="" />
+    </button>
+    <p class="js-display1"></p>
+    <p class="js-display2"></p>
+    <p style="color: white; margin-block-start: 35px" class="js-total-result">
+      Wins: 0, Losses: 0, Draw: 0;
+    </p>
+    <button class="reset">Reset</button>
+    <button class="auto">Auto Play</button>
+    <p class="check"></p>
+<!-- /////////////////////////////////////////////////////////////////////// -->
+    <script>
+      let isChange; let interValid;
+      document.querySelector(".auto").addEventListener("click", function () {
+        stopAutoPlay(this)
+      });
+
+      function stopAutoPlay(event) {
+          if (event.innerText === "Auto Play") {
+            if (isChange) {
+              return;
+            }
+            isChange = true
+            event.innerText = "Stop Play";
+            interValid = setInterval(function() {
+              playPick(game())
+            }, 500)
+          } else {
+            isChange = false
+            event.innerText = "Auto Play";
+            clearInterval(interValid)
+          }
+      };
+      const score = localStorage.getItem("score") === null ? {
+        win: 0, lose: 0, draw: 0,
+      } : JSON.parse(localStorage.getItem("score"));
+      
+      document.querySelector(
+          ".js-total-result"
+        ).innerHTML = `Wins: ${score.win}, Losses: ${score.lose}, Draw: ${score.draw}`;
+      let rock = 
+          "https://supersimple.dev/projects/rock-paper-scissors/images/rock-emoji.png";
+        let paper =
+          "https://supersimple.dev/projects/rock-paper-scissors/images/paper-emoji.png";
+        let scissors =
+          "https://supersimple.dev/projects/rock-paper-scissors/images/scissors-emoji.png";
+        function game() {
+            let randomNumber = Math.random();
+            if (randomNumber < 1 / 3) {
+              return rock;
+            } else if (randomNumber > 1 / 3 && randomNumber < 2 / 3) {
+              return paper;
+            } else {
+              return scissors;
+            }
+      }
+      document.querySelector(".reset").addEventListener("click", () => {
+        showEnd()
+      });
+
+      document.body.addEventListener("keydown", function(event) {
+        if (event.key.toUpperCase() === "r" || event.key.toLowerCase() === "r") {
+          playPick(rock)
+        } else if (event.key.toUpperCase() === "p" || event.key.toLowerCase() === "p") {
+          playPick(paper)
+        } else if (event.key.toUpperCase() === "s" || event.key.toLowerCase() === "s") {
+          playPick(scissors)
+        } else if (event.key === "Backspace") {
+           showEnd()
+        }
+      });
+      function showEnd() {
+        document.querySelector(".check").innerText = `Are you sure you want to reset this code?`;
+            document.querySelector(".check").style.color = "white";
+
+            const buttonYes = document.createElement("button");
+            buttonYes.innerText = `Yes`;
+            document.querySelector(".check").appendChild(buttonYes);
+
+            const buttonNo = document.createElement("button");
+            buttonNo.innerText = `No`;
+            document.querySelector(".check").appendChild(buttonNo);
+
+            buttonYes.addEventListener("click", function() {
+              document.querySelector(".check").innerText = ``;
+              reset();
+            });
+
+            buttonNo.addEventListener("click", function() {
+              document.querySelector(".check").innerText = ``;
+            })
+      };
+      function playPick(pick) {
+        let computerMove = game();
+        let result = "";
+        if (pick === rock) {
+          if (computerMove === rock) {
+            result = "it is draw";
+          } else if (computerMove === paper) {
+            result = "you lose";
+          } else if (computerMove === scissors) {
+            result = "you win";
+          }
+        } else if (pick === paper) {
+          if (computerMove === rock) {
+            result = "you win";
+          } else if (computerMove === paper) {
+            result = "it is draw";
+          } else if (computerMove === scissors) {
+            result = "you lose";
+          }
+        } else if (pick === scissors) {
+          if (computerMove === rock) {
+            result = "you lose";
+          } else if (computerMove === paper) {
+            result = "you win";
+          } else if (computerMove === scissors) {
+            result = "it is draw";
+          }
+        }
+        if (result === "you win") {
+          score.win += 1;
+        } else if (result === "you lose") {
+          score.lose += 1;
+        } else {
+          score.draw += 1;
+        };
+
+        document.querySelector(".js-display1").innerHTML = `${result}`;
+        document.querySelector(
+          ".js-display2"
+          ).innerHTML = `You pick <img src = ${pick}>  <img src = ${computerMove}> Computer pick`;
+        document.querySelector(
+            ".js-total-result").innerHTML = `Wins: ${score.win}, Losses: ${score.lose}, Draw: ${score.draw}`;
+        localStorage.setItem("score", JSON.stringify(score));
+            
+      };
+      function reset() {
+        score.win = 0, score.lose = 0, score.draw = 0;
+        document.querySelector(
+          ".js-total-result"
+        ).innerHTML = `Wins: ${score.win}, Losses: ${score.lose}, Draw: ${score.draw}`;
+        localStorage.setItem("score", JSON.stringify(score));
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: rgb(20, 20, 20);
+    }
+    html {
+      font-family: Arial, Helvetica, sans-serif;               
+    }
+    button {
+      margin: 5px 10px;
+      padding: 10px 20px;
+    }
+    h2,
+    h3,
+    h4 {
+      color: #ffffff;
+      margin: 20px 10px;
+    }
+    div {
+      display: flex;
+      margin: 0 10px;
+    }
+    div:first-of-type p {
+      border-top: none;
+    }
+    .div-third p {
+      border-bottom: none;
+    }
+    .div-first > p:last-child,
+    .div-second > p:last-child,
+    .div-third > p:last-child {
+      border-right: none;
+    }
+    .div-first > p:first-child,
+    .div-second > p:first-child,
+    .div-third > p:first-child {
+      border-left: none;
+    }
+    p {
+      width: 150px;
+      height: 150px;
+      /* margin: 10px; */
+      background-color: transparent;
+      border: 1px solid rgb(230, 223, 223);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 100px;
+      font-weight: 700;
+      color: white;
+    }
+  </style>
+  <body>
+    <h2>Tic Tac Toe</h2>
+    <div class="div-first">
+      <p></p>
+      <p></p>
+      <p></p>
+    </div>
+    <div class="div-second">
+      <p></p>
+      <p></p>
+      <p></p>
+    </div>
+    <div class="div-third">
+      <p></p>
+      <p></p>
+      <p></p>
+    </div>
+    <h3></h3>
+    <h4>Win: 0, Lose: 0, Draw: 0</h4>
+    <button class="reset">Reset</button>
+    <!-- //////////////////////////////////////////////////////////////////////// -->
+    <script>
+      const pTags = document.querySelectorAll("p");
+      const divTags = document.querySelectorAll("div");
+      const h3Tag = document.querySelector("h3");
+      const h4Tag = document.querySelector("h4");
+      const resetTag = document.querySelector(".reset");
+
+      let result = "";
+      let gameOver = false;
+      let isChange;
+      let play;
+      const score = JSON.parse(localStorage.getItem("score")) || {
+        win: 0,
+        lose: 0,
+        draw: 0,
+      };
+      h4Tag.innerText = `Win: ${score.win}, Lose: ${score.lose}, Draw: ${score.draw}`;
+
+      playGame();
+      document.body.addEventListener("keydown", function (event) {
+        if (
+          event.key.toUpperCase() === "x" ||
+          event.key.toLowerCase() === "x"
+        ) {
+          playGame(randomX());
+        } else if (event.key === "Backspace") {
+          resetPoint();
+        }
+      });
+
+      const autoPlay = document.createElement("button");
+      autoPlay.className = "autoPlay";
+      autoPlay.innerText = "Auto Play";
+      document.body.appendChild(autoPlay);
+
+      autoPlay.addEventListener("click", function () {
+        if (this.innerText === "Auto Play") {
+          if (isChange) {
+            return;
+          }
+          isChange = true;
+          this.innerText = "Stop Play";
+          playX = setInterval(() => {
+            randomX();
+          }, 1000);
+        } else {
+          isChange = false;
+          this.innerText = "Auto Play";
+          clearInterval(playX);
+        }
+        resetBoard();
+      });
+      resetTag.addEventListener("click", function () {
+        resetPoint();
+        resetBoard();
+      });
+      function playGame() {
+        pTags.forEach((event) => {
+          event.addEventListener("click", function () {
+            if (this.innerText === "" && !gameOver) {
+              /// điều kiện !gameOver để tránh trường hợp đã có kết quả mà vẫn có thể click tiếp được
+
+              this.innerText = "X";
+              horizontal();
+              vertical();
+              cross();
+              randomO();
+            }
+          });
+        });
+      }
+      function randomX() {
+        let p = Array.from(pTags).filter((p) => p.innerText === "");
+        const randomNumber = Math.floor(Math.random() * p.length);
+        if (p.length > 0 && !gameOver && p[randomNumber].innerText !== "O") {
+          p[randomNumber].innerText = "X";
+        }
+        randomO();
+        // if (p.length === 0 && !gameOver) {
+        //   location.reload();
+        // } else if (p.length === 0 && gameOver) {
+        //   location.reload();
+        // } else if (gameOver) {
+        //   location.reload();
+        // }
+        return p[randomNumber];
+      }
+      function randomO() {
+        let p = Array.from(pTags).filter((p) => p.innerText === "");
+        const randomNumber = Math.floor(Math.random() * p.length);
+        if (p.length > 0 && !gameOver) {
+          p[randomNumber].innerText = "O";
+          horizontal();
+          vertical();
+          cross();
+        } else if (p.length === 0 && !gameOver) {
+          /// nếu 9 ô full và không thể tìm ra người thắng (!gameOver)
+          if (!horizontal() && !vertical() && !cross()) {
+            result = "Draw";
+            gameOver = true;
+          }
+          resetBoard()
+        }
+        updateScoreAndDisplayResult(); 
+
+        return p[randomNumber];
+      }
+      function resetPoint() {
+        (score.win = 0), (score.lose = 0), (score.draw = 0);
+        h4Tag.innerText = `Win: ${score.win}, Lose: ${score.lose}, Draw: ${score.draw}`;
+        localStorage.setItem("score", JSON.stringify(score));
+      }
+
+      function resetBoard() {
+        pTags.forEach((p) => {
+          p.innerText = "";
+        });
+      }
+      function updateScoreAndDisplayResult() {
+        if (result === "You win") {
+          score.win++;
+        } else if (result === "Draw") {
+          score.draw++;
+        } else if (result === "You lose") {
+          score.lose++;
+        }
+        h3Tag.innerText = `${result}`;
+        h4Tag.innerText = `Win: ${score.win}, Lose: ${score.lose}, Draw: ${score.draw}`;
+        localStorage.setItem("score", JSON.stringify(score));
+
+        if (gameOver) {
+          setTimeout(() => {
+            location.reload();
+          }, 500);
+        }
+      }
+      function horizontal() {
+        for (let i = 0; i < divTags.length; i++) {
+          if (
+            Array.from(divTags[i].querySelectorAll("p")).every(
+              (p) => p.innerText === "X"
+            )
+          ) {
+            result = "You win";
+            gameOver = true;
+          } else if (
+            Array.from(divTags[i].querySelectorAll("p")).every(
+              (p) => p.innerText === "O"
+            )
+          ) {
+            result = "You lose";
+            gameOver = true;
+          }
+        }
+      }
+      function vertical() {
+        for (let i = 0; i < divTags.length; i++) {
+          if (
+            Array.from(divTags).every(
+              (div) => div.querySelectorAll("p")[i].innerText === "X"
+            )
+          ) {
+            result = "You win";
+            gameOver = true;
+          }
+          if (
+            Array.from(divTags).every(
+              (div) => div.querySelectorAll("p")[i].innerText === "O"
+            )
+          ) {
+            result = "You lose";
+            gameOver = true;
+          }
+        }
+      }
+      function cross() {
+        if (
+          divTags[0].querySelectorAll("p")[0].innerText === "X" &&
+          divTags[1].querySelectorAll("p")[1].innerText === "X" &&
+          divTags[2].querySelectorAll("p")[2].innerText === "X"
+        ) {
+          result = "You win";
+          gameOver = true;
+        } else if (
+          divTags[0].querySelectorAll("p")[0].innerText === "O" &&
+          divTags[1].querySelectorAll("p")[1].innerText === "O" &&
+          divTags[2].querySelectorAll("p")[2].innerText === "O"
+        ) {
+          result = "You lose";
+          gameOver = true;
+        } else if (
+          divTags[0].querySelectorAll("p")[2].innerText === "X" &&
+          divTags[1].querySelectorAll("p")[1].innerText === "X" &&
+          divTags[2].querySelectorAll("p")[0].innerText === "X"
+        ) {
+          result = "You win";
+          gameOver = true;
+        } else if (
+          divTags[0].querySelectorAll("p")[2].innerText === "O" &&
+          divTags[1].querySelectorAll("p")[1].innerText === "O" &&
+          divTags[2].querySelectorAll("p")[0].innerText === "O"
+        ) {
+          result = "You lose";
+          gameOver = true;
+        }
+      }
+    </script>
+  </body>
+</html>
