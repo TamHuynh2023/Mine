@@ -1,0 +1,4 @@
+*.env
+API Key.env
+__pycache__/
+faiss_vector_store/
