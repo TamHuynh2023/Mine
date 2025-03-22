@@ -4,8 +4,6 @@ from dotenv import load_dotenv
 import os
 from langchain_openai import OpenAIEmbeddings
 
-load_dotenv("D:/Programming/Mine/AI-DataScience/Book_recommendation/API Key.env")
-api_key = os.getenv("OPENAI_API_KEY")
 
 
 embeddings = OpenAIEmbeddings(model="text-embedding-3-large", api_key = api_key)

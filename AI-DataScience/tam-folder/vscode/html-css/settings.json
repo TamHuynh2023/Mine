@@ -1,9 +1,0 @@
-{
-  "powermode.combo.location": "default",
-  "powermode.enabled": true,
-  "powermode.presets": "magic",
-  "powermode.combo.timeout": 1,
-  "powermode.combo.threshold": 1,
-  "powermode.shake.enabled": false,
-  "editor.guides.bracketPairs": "active"
-}

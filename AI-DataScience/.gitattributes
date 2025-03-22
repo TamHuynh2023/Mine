@@ -1,8 +1,0 @@
-<<<<<<< HEAD
-*.pt filter=lfs diff=lfs merge=lfs -text
-*.dll filter=lfs diff=lfs merge=lfs -text
-*.faiss filter=lfs diff=lfs merge=lfs -text
-=======
-*.psd filter=lfs diff=lfs merge=lfs -text
-*.pt filter=lfs diff=lfs merge=lfs -text
->>>>>>> 7fb3d1ba5ac10b8affce1cfb0f177e9227e03040

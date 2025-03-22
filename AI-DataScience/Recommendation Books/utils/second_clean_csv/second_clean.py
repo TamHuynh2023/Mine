@@ -26,12 +26,7 @@ raw_documents = TextLoader("D:/Programming/Mine/AI-DataScience/Book_recommendati
 text_splitter = CharacterTextSplitter(chunk_size=0, chunk_overlap=0, separator="\n")
 documents = text_splitter.split_documents(raw_documents)
 
-from dotenv import load_dotenv
-import os
-from openai import OpenAI
 
-load_dotenv("D:\Programming\Mine\AI-DataScience\Book_recommendation\API Key.env")
-api_key = os.getenv("OPENAI_API_KEY")
 
 
 embeddings = OpenAIEmbeddings(model="text-embedding-3-large", api_key = api_key)
